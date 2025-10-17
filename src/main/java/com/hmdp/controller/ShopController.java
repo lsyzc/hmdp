@@ -59,8 +59,10 @@ public class ShopController {
     @PutMapping
     public Result updateShop(@RequestBody Shop shop) {
         // 写入数据库
-        shopService.updateById(shop);
-        return Result.ok();
+//        shopService.updateById(shop);
+//        return Result.ok();
+        // 更新shop时，先更新数据库再删除缓存
+         return shopService.updateShop(shop);
     }
 
     /**
